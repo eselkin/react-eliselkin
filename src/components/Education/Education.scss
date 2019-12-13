@@ -1,0 +1,32 @@
+@import "../../base/variables.scss";
+
+.avatar {
+    width: 100%;
+    max-height: 45px;
+}
+
+.card-title {
+    font: $card-title-font;
+    text-align: left;
+}
+
+.card-title a {
+    text-decoration: none;
+}
+
+.card-subtitle {
+    font: $card-subtitle-font;
+    text-align: left;
+    color: $subtitle-color;
+}
+
+.MuiExpansionPanelSummary-content {
+    font: $card-content-title-font;
+}
+
+.card-dates {
+    font: $card-content-font;
+}
+.card-content {
+    font: $card-content-font;
+}
