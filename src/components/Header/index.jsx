@@ -37,7 +37,7 @@ export default function Header({ spacing }) {
           neurological or psychiatric disorders.
         </div>
         <Typography variant="caption">
-          Looking for contract positions, please contact me at <a href="mailto:eli.j.selkin@gmail.com">eli [dot] j (dot) selkin [[at]] gmail.com</a>
+          Looking for contract positions, please contact me at <a href="mailto:me@eliselkin.com">me@eliselkin.com</a>
         </Typography>
       </Grid>
     </Grid>
