@@ -78,7 +78,7 @@ class Project extends Component {
           <CardContent>
             <Grid container spacing={3}>
               <Grid item xs={4} md={4}>
-                <img src={this.props.image} className="avatar" alt={this.props.title} />
+                <img src={this.props.image} className="img-avatar" alt={this.props.title} />
               </Grid>
               <Grid item>
                 <div className="card-title">{this.props.title}</div>
