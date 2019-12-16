@@ -8,11 +8,11 @@ const useStyles = makeStyles(theme => ({
   headshot: {
     maxHeight: "200px",
     borderRadius: 15,
-    width: 100,
-    height: 100
+    minWidth: "50px",
+    maxWidth: "100%",
   },
   header: {
-    alignItems: "flex-end",
+    alignItems: "flex-start",
     alignContent: "flex-end",
     flexGrow: 1
   }
@@ -21,14 +21,14 @@ export default function Header({ spacing }) {
   const classes = useStyles();
   return (
     <Grid container spacing={spacing} className={classes.header}>
-      <Grid item xs={12} sm={2} md={1}>
+      <Grid item xs={12} sm={3} md={2}>
         <img
           src={headshot}
           className={classes.headshot}
           alt="Headshot of Eli Selkin"
         />
       </Grid>
-      <Grid item xs={12} sm={10} md={11}>
+      <Grid item xs={12} sm={9} md={10}>
         <div className="title">Eli J. Selkin LCSW, MS</div>
         <div className="subtitle">BBS CA# LCS27109</div>
         <div className="objective">
@@ -37,7 +37,8 @@ export default function Header({ spacing }) {
           neurological or psychiatric disorders.
         </div>
         <Typography variant="caption">
-          Looking for contract positions, please contact me at <a href="mailto:me@eliselkin.com">me@eliselkin.com</a>
+          Looking for contract positions, please contact me at{" "}
+          <a href="mailto:me@eliselkin.com">me@eliselkin.com</a>
         </Typography>
       </Grid>
     </Grid>
