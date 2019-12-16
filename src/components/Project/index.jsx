@@ -11,6 +11,7 @@ import {
 import { withStyles } from "@material-ui/core/styles";
 import format from "date-fns/format";
 import "./Project.scss";
+import ReactGA from "react-ga";
 
 const styles = theme => ({
   modalcard: {
@@ -50,6 +51,7 @@ class Project extends Component {
     this.handleClose = this.handleClose.bind(this);
   }
   handleOpen() {
+    ReactGA.modalview(`projects/${this.props.title}`)
     this.setState({ open: true });
   }
   handleClose() {

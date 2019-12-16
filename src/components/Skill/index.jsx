@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Card, CardContent, Grid, Modal, CardHeader } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
+import ReactGA from "react-ga";
 import "./Skill.scss";
 
 const styles = theme => ({
@@ -41,6 +42,7 @@ class Skill extends Component {
     this.handleOpen = this.handleOpen.bind(this);
   }
   handleOpen() {
+    ReactGA.modalview(`skills/${this.props.title}`)
     this.setState({ open: true });
   }
 

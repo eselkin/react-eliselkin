@@ -6,13 +6,23 @@ import { filter } from "../../redux-actions/filter";
 import Grid from "@material-ui/core/Grid";
 import Input from "@material-ui/core/Input";
 import "./Filter.scss";
+import ReactGA from "react-ga";
+import debounce from "lodash/debounce";
 
 class Filter extends Component {
   constructor(props) {
     super(props);
     this.changeFilter = this.changeFilter.bind(this);
   }
+  sendEvent = debounce(action => {
+    ReactGA.event({
+      category: "filter",
+      action
+    });
+  }, 400);
+  
   changeFilter(e) {
+    this.sendEvent(e.target.value);
     this.props.filter(e.target.value);
   }
   render() {
@@ -31,9 +41,7 @@ class Filter extends Component {
   }
 }
 const mapStateToProps = state => {
-  const {
-    router
-  } = state;
+  const { router } = state;
   return {
     router
   };

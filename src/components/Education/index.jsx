@@ -11,12 +11,13 @@ import { withStyles } from "@material-ui/core/styles";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import format from "date-fns/format";
 import "./Education.scss";
+import ReactGA from "react-ga";
 
 const styles = theme => ({
   expansionlist: {
     textAlign: "left"
   }
-})
+});
 
 class Education extends Component {
   constructor(props) {
@@ -25,6 +26,10 @@ class Education extends Component {
     this.handleExpand = this.handleExpand.bind(this);
   }
   handleExpand(panel) {
+    ReactGA.event({
+      category: `education/expand`,
+      action: `${this.props.title}/${this.props.comments[panel].type}`
+    });
     this.setState({ expanded: panel });
   }
   render() {
@@ -35,7 +40,11 @@ class Education extends Component {
             <Grid item xs={2} md={1}>
               <Grid container>
                 <Grid item xs={12}>
-                  <img src={this.props.image} className="avatar" alt={this.props.title} />
+                  <img
+                    src={this.props.image}
+                    className="avatar"
+                    alt={this.props.title}
+                  />
                 </Grid>
                 <Grid item xs={12}>
                   <span className="card-dates">
@@ -66,7 +75,9 @@ class Education extends Component {
                     >
                       {c.type}
                     </ExpansionPanelSummary>
-                    <ExpansionPanelDetails className={this.props.classes.expansionlist}>
+                    <ExpansionPanelDetails
+                      className={this.props.classes.expansionlist}
+                    >
                       {Array.isArray(c.value) && (
                         <ul>
                           {c.value.map(item => {
@@ -74,7 +85,9 @@ class Education extends Component {
                           })}
                         </ul>
                       )}
-                      {!Array.isArray(c.value) && <div className="card-content">{c.value}</div>}
+                      {!Array.isArray(c.value) && (
+                        <div className="card-content">{c.value}</div>
+                      )}
                     </ExpansionPanelDetails>
                   </ExpansionPanel>
                 );

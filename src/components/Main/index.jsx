@@ -7,7 +7,9 @@ import WorkContainer from "../WorkContainer";
 import SkillsContainer from "../SkillsContainer";
 import ProjectsContainer from "../ProjectsContainer";
 import { Typography } from "@material-ui/core";
-
+import ReactGA from "react-ga";
+ReactGA.initialize('UA-116313428-1')
+ReactGA.pageview("/")
 class Main extends Component {
   constructor(props) {
     super(props);
