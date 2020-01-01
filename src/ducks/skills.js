@@ -8,6 +8,28 @@ const TYPES = {
 }
 export const skills = [
     {
+        "title": "go",
+        "type": TYPES.PROGRAMMING_LANGUAGE,
+        "comments": [
+            {
+                type: "Info",
+                value: "The newest programming language in my arsenal is go. I really like go, it feels like a mixture of python and C. I like the use of pointers and the expectation of parallelism. It all makes sense. I started using go to reprogram a gRPC server from node because node gRPC lacks reflection and a few other features. Go is also much faster."
+            }
+        ],
+        "tags": [
+            "computer",
+            "science",
+            "cs",
+            "c.s.",
+            "go",
+            "golang",
+            "gopher",
+            "programming",
+            "language",
+            "pointer"
+        ]
+    }
+    {
         "title": "C++",
         "type": TYPES.PROGRAMMING_LANGUAGE,
         "comments": [
