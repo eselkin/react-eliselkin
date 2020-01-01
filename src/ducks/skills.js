@@ -28,7 +28,7 @@ export const skills = [
             "language",
             "pointer"
         ]
-    }
+    },
     {
         "title": "C++",
         "type": TYPES.PROGRAMMING_LANGUAGE,
