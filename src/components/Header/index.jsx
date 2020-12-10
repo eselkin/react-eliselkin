@@ -4,12 +4,10 @@ import headshot from "../../assets/headshot.jpg";
 import { makeStyles } from "@material-ui/core/styles";
 import "./Header.scss";
 import { Typography } from "@material-ui/core";
+import Avatar from 'react-avatar'
 const useStyles = makeStyles(theme => ({
   headshot: {
-    maxHeight: "200px",
-    borderRadius: 15,
-    minWidth: "50px",
-    maxWidth: "100%",
+    alignItems: "right"
   },
   header: {
     alignItems: "flex-start",
@@ -21,11 +19,12 @@ export default function Header({ spacing }) {
   const classes = useStyles();
   return (
     <Grid container spacing={spacing} className={classes.header}>
-      <Grid item xs={12} sm={3} md={2}>
-        <img
+      <Grid item xs={12} sm={3} md={2} className={classes.headshot}>
+        <Avatar
           src={headshot}
-          className={classes.headshot}
           alt="Headshot of Eli Selkin"
+          size="160"
+          round
         />
       </Grid>
       <Grid item xs={12} sm={9} md={10}>

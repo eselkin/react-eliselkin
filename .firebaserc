@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "production": "eliselkin",
+    "staging": "eliselkin"
+  }
+}

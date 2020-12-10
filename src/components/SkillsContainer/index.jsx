@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { push } from "connected-react-router";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import Grid from "@material-ui/core/Grid";
 import Skill from "../Skill";
 
 class SkillsContainer extends Component {
@@ -13,15 +12,11 @@ class SkillsContainer extends Component {
 
   render() {
     return (
-      <Grid container className="filter">
-        {this.props.skillsState.map(s => {
+        this.props.skillsState.map(s => {
           return (
-            <Grid item key={s.title} xs={12} sm={12} md={6}>
               <Skill {...s} />
-            </Grid>
           );
-        })}
-      </Grid>
+        })
     );
   }
 }

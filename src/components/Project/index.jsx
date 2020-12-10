@@ -1,101 +1,99 @@
-import React, { Component } from "react";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardMedia,
-  Grid,
-  Modal,
-  Typography
-} from "@material-ui/core";
-import { withStyles } from "@material-ui/core/styles";
+import React, { useState } from "react";
+import Button from "@material-ui/core/Button"
+import Card from "@material-ui/core/Card"
+import CardContent from "@material-ui/core/CardContent"
+import CardHeader from "@material-ui/core/CardHeader"
+import CardMedia from "@material-ui/core/CardMedia"
+import Modal from "@material-ui/core/Modal"
+import Typography from "@material-ui/core/Typography"
+import Avatar from "react-avatar";
+import makeStyles from "@material-ui/core/styles/makeStyles";
 import format from "date-fns/format";
 import "./Project.scss";
 import ReactGA from "react-ga";
 
-const styles = theme => ({
+const useStyles = makeStyles((theme) => ({
+    button: {
+    [theme.breakpoints.up("xs")]: {
+      width: "100%",
+    },
+  },
   modalcard: {
     textAlign: "left",
     [theme.breakpoints.up("xs")]: {
       width: "90%",
       top: "5%",
       left: "5%",
-      bottom: "5%"
+      bottom: "5%",
     },
     [theme.breakpoints.up("sm")]: {
       width: "80%",
       top: "10%",
       left: "10%",
-      bottom: "30%"
+      bottom: "30%",
     },
     [theme.breakpoints.up("md")]: {
       width: "70%",
       top: "15%",
       left: "15%",
-      bottom: "30%"
+      bottom: "30%",
     },
     position: "absolute",
-    overflowY: "scroll"
+    overflowY: "scroll",
+  },
+  projectButtonDiv: {
+    display: "flex",
+    flexDirection: "column",
+    alignContent: "flex-start",
+    alignItems: "flex-start"
+  },
+  projectButtonTitle: {},
+  projectButtonDates: {
+    
   },
   media: {
     height: 140,
-    width: 140
-  }
-});
+    width: 140,
+  },
+}));
 
-class Project extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { open: false };
-    this.handleOpen = this.handleOpen.bind(this);
-    this.handleClose = this.handleClose.bind(this);
-  }
-  handleOpen() {
-    ReactGA.modalview(`projects/${this.props.title}`)
-    this.setState({ open: true });
-  }
-  handleClose() {
-    this.setState({ open: false });
-  }
-  render() {
-    const { classes } = this.props;
-    return (
-      <>
-        <Modal open={this.state.open} onClose={this.handleClose}>
-          <Card justify="left" className={classes.modalcard}>
-            <CardMedia
-              className={classes.media}
-              image={this.props.image}
-              title={this.props.title}
-            />
-            <CardHeader title={this.props.title}></CardHeader>
-            <CardContent>
-              {this.props.comments.map((c, i) => {
-                return <Typography variant="body1" key={`${this.props.title}-${c.type}`}>{c.value}</Typography>;
-              })}
-            </CardContent>
-          </Card>
-        </Modal>
-        <Card justify="left" onClick={this.handleOpen}>
+export default function Project({ image, title, comments, from, to }) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleOpen = () => {
+    ReactGA.modalview(`projects/${title}`);
+    setIsOpen(true);
+  };
+  const handleClose = () => {
+    setIsOpen(false);
+  };
+  const classes = useStyles();
+  return (
+    <>
+      <Modal open={isOpen} onClose={handleClose}>
+        <Card justify="left" className={classes.modalcard}>
+          <CardMedia className={classes.media} image={image} title={title} />
+          <CardHeader title={title}></CardHeader>
           <CardContent>
-            <Grid container spacing={3}>
-              <Grid item xs={4} md={4}>
-                <img src={this.props.image} className="img-avatar" alt={this.props.title} />
-              </Grid>
-              <Grid item>
-                <div className="card-title">{this.props.title}</div>
-                <div className="card-dates">
-                  {format(this.props.from, ["MM/yyyy"], [])}-
-                  {this.props.to
-                    ? format(this.props.to, ["MM/yyyy"], [])
-                    : "present"}
-                </div>
-              </Grid>
-            </Grid>
+            {comments.map((c, i) => {
+              return (
+                <Typography variant="body1" key={`${title}-${c.type}`}>
+                  {c.value}
+                </Typography>
+              );
+            })}
           </CardContent>
         </Card>
-      </>
-    );
-  }
+      </Modal>
+      <Button startIcon={<Avatar src={image} size="36"/>} onClick={handleOpen} className={classes.button}>
+        <div className={classes.projectButtonDiv}>
+          <Typography variant="body1" className={classes.projectButtonTitle}>{title}</Typography>
+          <Typography variant="caption" className={classes.projectButtondates}>
+            {format(from, ["MM/yyyy"], [])}-
+            {to ? format(to, ["MM/yyyy"], []) : "present"}
+          </Typography>
+          </div>
+      </Button>
+    </>
+  );
 }
-export default withStyles(styles)(Project);

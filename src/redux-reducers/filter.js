@@ -5,7 +5,7 @@ import { work } from "../ducks/work"
 import { projects } from "../ducks/projects"
 const defaultState = { filter_value: "", education, work, skills, projects }
 
-export default function (state = defaultState, action) {
+export default function filtering(state = defaultState, action) {
     switch (action.type) {
         case FILTERED:
             const filter_value = action.filter_value.toLowerCase()
