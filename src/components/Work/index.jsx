@@ -4,44 +4,43 @@ import format from "date-fns/format";
 import "./Work.scss";
 import { withStyles } from "@material-ui/core/styles";
 
-const styles = theme => ({
+const styles = (theme) => ({
   leftgrid: {
-    textAlign: "left"
+    textAlign: "left",
   },
   rightgrid: {
     textAlign: "left",
     [theme.breakpoints.up("xs")]: {
-      marginLeft: "20px"
+      marginLeft: "20px",
     },
     [theme.breakpoints.up("sm")]: {
-      marginLeft: "10px"
+      marginLeft: "10px",
     },
-
   },
   itemimage: {
     width: "100%",
     [theme.breakpoints.up("xs")]: {
-      width: "80%"
+      width: "80%",
     },
     [theme.breakpoints.up("sm")]: {
-      width: "90%"
+      width: "90%",
     },
     [theme.breakpoints.up("md")]: {
-      width: "100%"
-    }
+      width: "100%",
+    },
   },
   itemdates: {
     [theme.breakpoints.up("xs")]: {
-      fontSize: "0.9rem"
+      fontSize: "0.9rem",
     },
     [theme.breakpoints.up("sm")]: {
-      fontSize: "0.70rem"
+      fontSize: "0.70rem",
     },
     [theme.breakpoints.up("md")]: {
-      fontSize: "0.60rem"
-    }
+      fontSize: "0.60rem",
+    },
   },
-  itemcontent: {}
+  itemcontent: {},
 });
 class Work extends React.Component {
   constructor(props) {
@@ -96,7 +95,7 @@ class Work extends React.Component {
                       </ul>
                     );
                   }
-                  return <div />;
+                  return <div key={`No-accomplishments`} />;
                 })}
               </div>
             </Grid>

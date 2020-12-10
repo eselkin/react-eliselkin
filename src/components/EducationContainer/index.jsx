@@ -14,7 +14,7 @@ class EducationContainer extends Component {
   render() {
     return (
       <Grid container className="filter">
-        {this.props.ecducationState.map(e => {
+        {this.props.ecducationState.map((e) => {
           return (
             <Grid item key={e.title} xs={12}>
               <Education {...e} />
@@ -25,16 +25,16 @@ class EducationContainer extends Component {
     );
   }
 }
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   const { filter } = state;
   return {
-    ecducationState: filter.education
+    ecducationState: filter.education,
   };
 };
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return bindActionCreators(
     {
-      push // To dispatch location changes
+      push, // To dispatch location changes
     },
     dispatch
   );

@@ -1,60 +1,69 @@
-import React, { Component } from "react";
+import React from "react";
 import { push } from "connected-react-router";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { filter } from "../../redux-actions/filter";
 import Grid from "@material-ui/core/Grid";
-import Input from "@material-ui/core/Input";
 import "./Filter.scss";
 import ReactGA from "react-ga";
 import debounce from "lodash/debounce";
+import makeStyles from "@material-ui/styles/makeStyles";
+import TextField from "@material-ui/core/TextField";
 
-class Filter extends Component {
-  constructor(props) {
-    super(props);
-    this.changeFilter = this.changeFilter.bind(this);
-  }
-  sendEvent = debounce(action => {
+const useStyles = makeStyles((theme) => ({
+  filter: {
+    textAlign: "center",
+    marginTop: "20px",
+    marginBottom: "20px",
+  },
+}));
+
+const Filter = ({ filter }) => {
+  const sendEvent = debounce((action) => {
     ReactGA.event({
       category: "filter",
-      action
+      action,
     });
   }, 400);
-  
-  changeFilter(e) {
-    this.sendEvent(e.target.value);
-    this.props.filter(e.target.value);
-  }
-  render() {
-    return (
-      <Grid container className="filter">
-        <Grid item xs={false} sm={false} md={1}></Grid>
-        <Grid item xs={12} sm={8} md={9}>
-          <Input
+
+  const changeFilter = (e) => {
+    sendEvent(e.target.value);
+    filter(e.target.value);
+  };
+
+  const classes = useStyles();
+
+  return (
+    <Grid container className={classes.filter}>
+      <Grid item xs={null} sm={2} md={2}></Grid>
+      <Grid item xs={12} sm={8} md={8}>
+        <form className={classes.root} noValidate autoComplete="off">
+          <TextField
             placeholder="filter by"
+            variant="outlined"
             fullWidth
-            onChange={this.changeFilter}
+            onChange={changeFilter}
           />
-        </Grid>
+        </form>
       </Grid>
-    );
-  }
-}
-const mapStateToProps = state => {
+    </Grid>
+  );
+};
+
+const mapStateToProps = (state) => {
   const { router } = state;
   return {
-    router
+    router,
   };
 };
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return bindActionCreators(
     {
       push, // To dispatch location changes
-      filter
+      filter,
     },
     dispatch
   );
 };
 
-Filter = connect(mapStateToProps, mapDispatchToProps)(Filter);
-export default Filter;
+export default connect(mapStateToProps, mapDispatchToProps)(Filter);

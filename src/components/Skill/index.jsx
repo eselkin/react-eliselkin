@@ -6,6 +6,7 @@ import {
   Modal,
   CardHeader,
   Button,
+  Typography,
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import ReactGA from "react-ga";
@@ -17,11 +18,17 @@ const useStyles = makeStyles((theme) => ({
       width: "100%",
     },
     [theme.breakpoints.up("md")]: {
-      width: "50%",
+      width: "100%",
+      textAlign: "left",
     },
     [theme.breakpoints.up("lg")]: {
-      width: "33%",
+      width: "100%",
+      textAlign: "left",
     },
+  },
+  buttonTitle: {
+    width: "100%",
+    textAlign: "left",
   },
   modalcard: {
     textAlign: "left",
@@ -111,8 +118,10 @@ export default function Skill({ title, comments }) {
           </CardContent>
         </Card>
       </Modal>
-      <Button onClick={handleOpen} className={classes.button}>
-        {title}
+      <Button onClick={handleOpen} className={classes.button} fullWidth>
+        <Typography variant="body2" className={classes.buttonTitle}>
+          {title}
+        </Typography>
       </Button>
     </>
   );

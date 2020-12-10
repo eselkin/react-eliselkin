@@ -14,7 +14,7 @@ class WorkContainer extends Component {
   render() {
     return (
       <Grid container className="filter">
-        {this.props.workState.map(w=> {
+        {this.props.workState.map((w) => {
           return (
             <Grid item key={w.title} xs={12}>
               <Work {...w} />
@@ -25,23 +25,20 @@ class WorkContainer extends Component {
     );
   }
 }
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   const { filter } = state;
   return {
-    workState: filter.work
+    workState: filter.work,
   };
 };
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return bindActionCreators(
     {
-      push // To dispatch location changes
+      push, // To dispatch location changes
     },
     dispatch
   );
 };
 
-WorkContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(WorkContainer);
+WorkContainer = connect(mapStateToProps, mapDispatchToProps)(WorkContainer);
 export default WorkContainer;

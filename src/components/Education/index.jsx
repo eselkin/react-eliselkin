@@ -5,7 +5,7 @@ import {
   Grid,
   ExpansionPanel,
   ExpansionPanelSummary,
-  ExpansionPanelDetails
+  ExpansionPanelDetails,
 } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
@@ -13,10 +13,10 @@ import format from "date-fns/format";
 import "./Education.scss";
 import ReactGA from "react-ga";
 
-const styles = theme => ({
+const styles = (theme) => ({
   expansionlist: {
-    textAlign: "left"
-  }
+    textAlign: "left",
+  },
 });
 
 class Education extends Component {
@@ -28,7 +28,7 @@ class Education extends Component {
   handleExpand(panel) {
     ReactGA.event({
       category: `education/expand`,
-      action: `${this.props.title}/${this.props.comments[panel].type}`
+      action: `${this.props.title}/${this.props.comments[panel].type}`,
     });
     this.setState({ expanded: panel });
   }
@@ -80,7 +80,7 @@ class Education extends Component {
                     >
                       {Array.isArray(c.value) && (
                         <ul>
-                          {c.value.map(item => {
+                          {c.value.map((item) => {
                             return <li key={`${item}`}>{item}</li>;
                           })}
                         </ul>

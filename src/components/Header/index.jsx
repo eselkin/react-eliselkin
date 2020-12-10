@@ -4,28 +4,30 @@ import headshot from "../../assets/headshot.jpg";
 import { makeStyles } from "@material-ui/core/styles";
 import "./Header.scss";
 import { Typography } from "@material-ui/core";
-import Avatar from 'react-avatar'
-const useStyles = makeStyles(theme => ({
+import Avatar from "react-avatar";
+const useStyles = makeStyles((theme) => ({
   headshot: {
-    alignItems: "right"
+    [theme.breakpoints.up("xs")]: {
+      alignItems: "right",
+      textAlign: "right",
+    },
+    [theme.breakpoints.up("sm")]: {
+      alignItems: "center",
+      textAlign: "center",
+    },
   },
   header: {
     alignItems: "flex-start",
     alignContent: "flex-end",
-    flexGrow: 1
-  }
+    flexGrow: 1,
+  },
 }));
 export default function Header({ spacing }) {
   const classes = useStyles();
   return (
     <Grid container spacing={spacing} className={classes.header}>
-      <Grid item xs={12} sm={3} md={2} className={classes.headshot}>
-        <Avatar
-          src={headshot}
-          alt="Headshot of Eli Selkin"
-          size="160"
-          round
-        />
+      <Grid item xs={12} sm={4} md={2} className={classes.headshot}>
+        <Avatar src={headshot} alt="Headshot of Eli Selkin" size="160" round />
       </Grid>
       <Grid item xs={12} sm={9} md={10}>
         <div className="title">Eli J. Selkin LCSW, MS</div>

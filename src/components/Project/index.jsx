@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import Button from "@material-ui/core/Button"
-import Card from "@material-ui/core/Card"
-import CardContent from "@material-ui/core/CardContent"
-import CardHeader from "@material-ui/core/CardHeader"
-import CardMedia from "@material-ui/core/CardMedia"
-import Modal from "@material-ui/core/Modal"
-import Typography from "@material-ui/core/Typography"
+import Button from "@material-ui/core/Button";
+import Card from "@material-ui/core/Card";
+import CardContent from "@material-ui/core/CardContent";
+import CardHeader from "@material-ui/core/CardHeader";
+import CardMedia from "@material-ui/core/CardMedia";
+import Modal from "@material-ui/core/Modal";
+import Typography from "@material-ui/core/Typography";
 import Avatar from "react-avatar";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import format from "date-fns/format";
@@ -13,9 +13,10 @@ import "./Project.scss";
 import ReactGA from "react-ga";
 
 const useStyles = makeStyles((theme) => ({
-    button: {
+  button: {
     [theme.breakpoints.up("xs")]: {
       width: "100%",
+      justifyContent: "flex-start",
     },
   },
   modalcard: {
@@ -45,12 +46,11 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     alignContent: "flex-start",
-    alignItems: "flex-start"
+    alignItems: "flex-start",
+    wdith: "100%",
   },
   projectButtonTitle: {},
-  projectButtonDates: {
-    
-  },
+  projectButtonDates: {},
   media: {
     height: 140,
     width: 140,
@@ -85,14 +85,20 @@ export default function Project({ image, title, comments, from, to }) {
           </CardContent>
         </Card>
       </Modal>
-      <Button startIcon={<Avatar src={image} size="36"/>} onClick={handleOpen} className={classes.button}>
+      <Button
+        startIcon={<Avatar src={image} size="36" />}
+        onClick={handleOpen}
+        className={classes.button}
+      >
         <div className={classes.projectButtonDiv}>
-          <Typography variant="body1" className={classes.projectButtonTitle}>{title}</Typography>
+          <Typography variant="body1" className={classes.projectButtonTitle}>
+            {title}
+          </Typography>
           <Typography variant="caption" className={classes.projectButtondates}>
             {format(from, ["MM/yyyy"], [])}-
             {to ? format(to, ["MM/yyyy"], []) : "present"}
           </Typography>
-          </div>
+        </div>
       </Button>
     </>
   );

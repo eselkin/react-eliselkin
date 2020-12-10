@@ -8,8 +8,10 @@ import SkillsContainer from "../SkillsContainer";
 import ProjectsContainer from "../ProjectsContainer";
 import { Typography } from "@material-ui/core";
 import ReactGA from "react-ga";
-ReactGA.initialize(process.env.NODE_ENV === 'development' ? 'UA-116313428-1' : 'UA-116313428-2')
-ReactGA.pageview("/")
+ReactGA.initialize(
+  process.env.NODE_ENV === "development" ? "UA-116313428-1" : "UA-116313428-2"
+);
+ReactGA.pageview("/");
 class Main extends Component {
   constructor(props) {
     super(props);
@@ -26,15 +28,17 @@ class Main extends Component {
             <Filter spacing={this.spacing} />
           </Grid>
           <Grid item xs={12} sm={7}>
-            <Typography variant="h5" gutterBottom>Experience</Typography>
+            <Typography variant="h5" gutterBottom>
+              Experience
+            </Typography>
             <WorkContainer spacing={this.spacing} />
-            <Typography variant="h5" gutterBottom>Education</Typography>
+            <Typography variant="h5" gutterBottom>
+              Education
+            </Typography>
             <EducationContainer spacing={this.spacing} />
           </Grid>
           <Grid item xs={12} sm={5}>
-            <Typography variant="h5" gutterBottom>Skills</Typography>
             <SkillsContainer spacing={this.spacing} />
-            <Typography variant="h5" gutterBottom>Projects</Typography>
             <ProjectsContainer spacing={this.spacing} />
           </Grid>
         </Grid>
