@@ -54,7 +54,7 @@ const useStyles = makeStyles((theme) => ({
     textDecoration: "none",
   },
   accSummary: {
-    backgroundColor: "lightblue",
+    backgroundColor: "#EFEFFF",
     textTransform: "uppercase",
   },
   avatar: {
@@ -109,7 +109,7 @@ const EducationItem: React.FC<DataObject> = ({
   link,
 }: DataObject) => {
   const classes = useStyles();
-  const [expanded, setExpanded] = React.useState<number>(0);
+  const [expanded, setExpanded] = React.useState<number>(-1);
 
   const handleChange = (panel: number) => (
     event: React.ChangeEvent<unknown>,

@@ -74,6 +74,7 @@ export const Header: React.FC = () => {
           src={headshot}
           alt="Headshot of Eli Selkin"
           className={classes.avatar}
+          variant="circle"
         />
       </Grid>
       <Grid xs={12} lg={10} item className={classes.text}>

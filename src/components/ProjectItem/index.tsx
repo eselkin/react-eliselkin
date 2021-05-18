@@ -2,26 +2,18 @@ import React from "react";
 import { Avatar, Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { DataObject } from "typesAndInterfaces/interfaces";
+import Grid from "@material-ui/core/Grid";
 
 const useStyles = makeStyles((theme) => ({
   button: {
-    [theme.breakpoints.up("xs")]: {
-      width: "100%",
-    },
-    [theme.breakpoints.up("md")]: {
-      width: "100%",
-      textAlign: "left",
-    },
-    [theme.breakpoints.up("lg")]: {
-      width: "100%",
-      textAlign: "left",
-    },
+    padding: 10,
   },
   buttonTitle: {
     width: "100%",
     textAlign: "left",
+    backgroundColor: "#EFEFFF",
+    boxShadow: "2px 2px 3px 1px lightblue",
   },
-  popper: {},
 }));
 
 export interface DataObjectPopper extends DataObject {
@@ -36,7 +28,7 @@ const ProjectItem: React.FC<DataObjectPopper> = ({
 }: DataObjectPopper) => {
   const classes = useStyles();
   return (
-    <>
+    <Grid item className={classes.button}>
       <Button
         startIcon={<Avatar src={image} />}
         type="button"
@@ -48,7 +40,7 @@ const ProjectItem: React.FC<DataObjectPopper> = ({
       >
         {title}
       </Button>
-    </>
+    </Grid>
   );
 };
 export default ProjectItem;
