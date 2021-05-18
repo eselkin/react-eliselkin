@@ -63,7 +63,7 @@ const SkillsContainer: React.FC = () => {
       return setFilteredSkills(skills);
     }
     const fuse = new Fuse<DataObject>(skills, {
-      keys: ["title", "subtitle", "tags", "comments.value"],
+      keys: ["title", "subtitle", "tags", "comments.info", "type"],
       threshold: 0.0,
       ignoreLocation: true,
     });

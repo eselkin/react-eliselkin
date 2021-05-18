@@ -18,7 +18,16 @@ const EducationContainer: React.FC = () => {
       return setFilteredEducationItems(education);
     }
     const fuse = new Fuse<DataObject>(education, {
-      keys: ["title", "subtitle", "tags", "comments.value"],
+      keys: [
+        "title",
+        "subtitle",
+        "tags",
+        "comments.focus",
+        "comments.thesis",
+        "comments.extracurricular",
+        "comments.courses",
+        "comments.accomplishments",
+      ],
       threshold: 0.0,
       ignoreLocation: true,
     });

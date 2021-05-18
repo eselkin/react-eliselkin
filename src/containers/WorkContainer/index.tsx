@@ -16,7 +16,7 @@ const WorkContainer: React.FC = () => {
       return setFilteredWorkItems(work);
     }
     const fuse = new Fuse<DataObject>(work, {
-      keys: ["title", "subtitle", "tags", "comments.value"],
+      keys: ["title", "subtitle", "tags", "comments.accomplishments"],
       threshold: 0.0,
       ignoreLocation: true,
     });
