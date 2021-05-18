@@ -111,7 +111,10 @@ const EducationItem: React.FC<DataObject> = ({
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState<number>(0);
 
-  const handleChange = (panel: number) => (event: any, isExpanded: boolean) => {
+  const handleChange = (panel: number) => (
+    event: React.ChangeEvent<unknown>,
+    isExpanded: boolean
+  ) => {
     setExpanded(isExpanded ? panel : -1);
   };
 

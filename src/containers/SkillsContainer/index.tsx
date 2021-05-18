@@ -1,4 +1,4 @@
-import React, { useEffect, useState, MouseEvent } from "react";
+import React, { useEffect, useState } from "react";
 import Fuse from "fuse.js";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import Card from "@material-ui/core/Card";
@@ -114,7 +114,7 @@ const SkillsContainer: React.FC = () => {
       </Paper>
     );
   };
-  const handleClick = (i: number, event: MouseEvent<HTMLButtonElement>) => {
+  const handleClick = (i: number) => {
     ReactGA.modalview(`skills/${filteredSkills[i].title}`);
     setModalContent(createModalContent(filteredSkills[i]));
   };

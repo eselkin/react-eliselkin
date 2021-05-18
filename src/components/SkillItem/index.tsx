@@ -1,4 +1,4 @@
-import React, { MouseEvent } from "react";
+import React from "react";
 import { Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { DataObject } from "typesAndInterfaces/interfaces";
@@ -25,17 +25,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export interface DataObjectPopper extends DataObject {
-  onClick: (i: number, event: MouseEvent<HTMLButtonElement>) => void;
+  onClick: (i: number) => void;
   id: number;
 }
 const SkillItem: React.FC<DataObjectPopper> = ({
   title,
-  subtitle,
-  image,
-  comments,
-  from,
-  to,
-  link,
   id,
   onClick,
 }: DataObjectPopper) => {
@@ -44,8 +38,8 @@ const SkillItem: React.FC<DataObjectPopper> = ({
     <>
       <Button
         type="button"
-        onClick={(event) => {
-          onClick(id, event);
+        onClick={() => {
+          onClick(id);
         }}
         aria-describedby={`${id}-popper`}
         className={classes.buttonTitle}
