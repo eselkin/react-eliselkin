@@ -4,7 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { DataObject } from "typesAndInterfaces/interfaces";
 import Grid from "@material-ui/core/Grid";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   button: {
     padding: 10,
   },
