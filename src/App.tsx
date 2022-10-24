@@ -4,7 +4,7 @@ import Therapy from '@/views/Therapy';
 import { Bars4Icon, MoonIcon, SunIcon } from '@heroicons/react/24/outline';
 
 export default function App() {
-  const [view, setView] = useState('therapy');
+  const [view, setView] = useState('resume');
   const [isDark, setIsDark] = useState(false);
   const [hovering, setIsHovering] = useState(true);
   return (
