@@ -33,7 +33,7 @@ ChartJS.register(
 import WorkExperience from '@/components/WorkExperience';
 import SkillExp from '@/components/SkillExp';
 import EduExperience from '@/components/EduExperience';
-
+import { ArrowTopRightOnSquareIcon } from '@heroicons/react/20/solid';
 export default function Resume({ onMouseEnter, isDark }: { onMouseEnter: () => void; isDark: boolean }) {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const footer = (items: any[]) => {
@@ -59,6 +59,7 @@ export default function Resume({ onMouseEnter, isDark }: { onMouseEnter: () => v
             rel="noreferrer"
           >
             github@eselkin
+            <ArrowTopRightOnSquareIcon className="inline w-4 h-4" />
           </a>
         </div>
         <div>
@@ -69,6 +70,7 @@ export default function Resume({ onMouseEnter, isDark }: { onMouseEnter: () => v
             rel="noreferrer"
           >
             linkedin@eliselkin
+            <ArrowTopRightOnSquareIcon className="inline w-4 h-4" />
           </a>
         </div>
       </div>
@@ -213,7 +215,7 @@ export default function Resume({ onMouseEnter, isDark }: { onMouseEnter: () => v
                 />
               ))}
             </div>
-            <div className="w-full hidden md:block">
+            <div className="w-full hidden lg:block">
               <Bar
                 options={{
                   indexAxis: 'y',
