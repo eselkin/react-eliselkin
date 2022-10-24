@@ -1,6 +1,5 @@
 {
   "projects": {
-    "production": "eliselkin",
-    "staging": "eliselkin"
+    "default": "eli-selkin"
   }
 }

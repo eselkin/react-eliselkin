@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .App {
+    @apply min-h-screen relative;
+  }
+  .btn-sm {
+    @apply rounded-none !important;
+  }
+  .toggle {
+    @apply rounded-none !important;
+  }
+}

@@ -1,0 +1,92 @@
+import { Work } from '@/types';
+
+export const workExperiences: Work[] = [
+  {
+    from: 2021,
+    to: 2022,
+    company: 'Loxe, Inc.',
+    position: 'CTO & Co-Founder',
+    skills: ['tech-k8', 'tech-gcp', 'tech-ts', 'tech-haskell'],
+    items: [
+      'Supported raising non-dilutive capital through the Cardano Catalyst project',
+      'Managed team building complex project using bleeding edge technologies',
+      'Constructed Kubernetes platform to manage interactions with Cardano blockchain across Unix Domain Sockets.',
+      'Developed four products from inception that currently serve the Cardano community (adatar.me, mediators.ai, PAB Log Processor, PMMarketplace)',
+    ],
+  },
+  {
+    from: 2020,
+    to: 2021,
+    company: 'Citizentric, LLC',
+    position: 'Software Engineer & Data Scientist',
+    items: [
+      'Assisted in hiring a team to develop shared housing MVP rapidly.',
+      'Mentored and coached the team on building out the React.js frontend.',
+      'Created CI pipelines for testing and deployment.',
+      'Managed deployments of multiple environments to GCP firebase.',
+      'Actively developed on React Frontend and Neo4j graphql backend.',
+      'Created python analysis dashboard with Neo4j integration.',
+    ],
+    skills: ['tech-gcp', 'tech-ts', 'tech-react', 'tech-neo4j', 'tech-python', 'tech-graphql'],
+  },
+  {
+    from: 2018,
+    to: Infinity,
+    company: 'Upful, Inc.',
+    position: 'CTO & Co-Founder',
+    skills: ['tech-node', 'tech-react', 'tech-ts', 'tech-python', 'tech-docker', 'tech-k8', 'tech-aws', 'tech-gcp'],
+    items: [
+      'Constructed NLP architecture for real-time language assessment.',
+      'Constructed a Kubernetes-based system for orchestrating the platform.',
+      'Developed gRPC APIs for real-time language assessment.',
+      'Developed python real-time NLP pipeline.',
+      'Developed gRPC React.js client for language assessment',
+      'Developed Node.js backend for entity tasks',
+    ],
+  },
+  {
+    company: 'Eli Selkin, LCSW',
+    position: 'Private therapist',
+    from: 2012,
+    to: Infinity,
+    skills: ['psy-cbt'],
+    items: [],
+  },
+  {
+    from: 2003,
+    to: 2003,
+    company: 'Prototypes I-CAN',
+    position: 'Day Rehabilitation Program Manager',
+    items: [
+      'Managed a day rehabilitation program for adults with developmental disabilities.',
+      'I also managed the program budget and worked with the state to ensure compliance with regulations.',
+    ],
+    skills: ['psy-cbt', 'psy-psychodynamic'],
+  },
+  {
+    from: 2004,
+    to: 2006,
+    company: 'Torrance Memorial Medical Center',
+    position: 'On-Call Social Worker - ED',
+    items: [
+      'Provided crisis intervention',
+      'Provided support to patients and families',
+      'Acted as a mandated reporter of abuse',
+    ],
+  },
+  {
+    from: 2004,
+    to: 2012,
+    company: 'Los Angeles County, Department of Mental Health',
+    position: 'Psychiatric Social Worker II',
+    items: [
+      'Los Angeles County DMH Paperwork (AIA/CCCP/Progress Notes/COD/COS)',
+      'Adult and Older Adult Psychosocial evaluations',
+      'Provided psychotherapy (CBT-individual/groups) to adults with severe mental illness',
+      'Provided crisis intervention using Benjamin Rush model',
+      'Coordinated care with other providers',
+      'LPS designated',
+    ],
+    skills: ['psy-cbt', 'psy-psychodynamic', 'psy-crisis-intervention'],
+  },
+];
