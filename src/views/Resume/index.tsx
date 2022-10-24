@@ -1,6 +1,6 @@
 import { resume } from '@/constants/resume';
 import React from 'react';
-import { Bar, Radar } from 'react-chartjs-2';
+import { Bar } from 'react-chartjs-2';
 import {
   Chart as ChartJS,
   BarController,
@@ -15,7 +15,6 @@ import {
   BarElement,
   Title,
   SubTitle,
-  ChartItem,
 } from 'chart.js';
 ChartJS.register(
   RadialLinearScale,
@@ -36,7 +35,8 @@ import SkillExp from '@/components/SkillExp';
 import EduExperience from '@/components/EduExperience';
 
 export default function Resume({ onMouseEnter, isDark }: { onMouseEnter: () => void; isDark: boolean }) {
-  const footer = (items: ChartItem) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const footer = (items: any[]) => {
     let footerText = 'Info: ';
     for (const item of items) {
       footerText += item.dataset.info;
@@ -87,8 +87,8 @@ export default function Resume({ onMouseEnter, isDark }: { onMouseEnter: () => v
                   }
                   return 0;
                 })
-                .map((work_experience) => (
-                  <WorkExperience experience={work_experience} />
+                .map((workExperience) => (
+                  <WorkExperience experience={workExperience} key={workExperience.company} />
                 ))}
             </div>
             <h2 className="w-full border-b-2 border-black text-xl text-center my-3">Education</h2>
@@ -103,8 +103,8 @@ export default function Resume({ onMouseEnter, isDark }: { onMouseEnter: () => v
                   }
                   return 0;
                 })
-                .map((edu_experience) => (
-                  <EduExperience experience={edu_experience} />
+                .map((eduExperience) => (
+                  <EduExperience experience={eduExperience} key={eduExperience.school} />
                 ))}
             </div>
           </div>
@@ -116,7 +116,7 @@ export default function Resume({ onMouseEnter, isDark }: { onMouseEnter: () => v
               <select
                 className="select select-sm select-bordered w-56 mb-3  max-w-xs"
                 value={tSkillSelectValue}
-                onChange={(e: React.UIEvent<HTMLSelectElement>) => {
+                onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
                   setTSkillSelectValue(parseInt(e.currentTarget.value));
                 }}
               >
