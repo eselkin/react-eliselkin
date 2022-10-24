@@ -15,6 +15,7 @@ import {
   BarElement,
   Title,
   SubTitle,
+  ChartItem,
 } from 'chart.js';
 ChartJS.register(
   RadialLinearScale,
@@ -35,7 +36,7 @@ import SkillExp from '@/components/SkillExp';
 import EduExperience from '@/components/EduExperience';
 
 export default function Resume({ onMouseEnter, isDark }: { onMouseEnter: () => void; isDark: boolean }) {
-  const footer = (items) => {
+  const footer = (items: ChartItem) => {
     let footerText = 'Info: ';
     for (const item of items) {
       footerText += item.dataset.info;
@@ -54,7 +55,8 @@ export default function Resume({ onMouseEnter, isDark }: { onMouseEnter: () => v
           <a
             href="https://github.com/eselkin"
             className={`link ${isDark ? 'link-accent' : 'link-primary'}`}
-            target="_blank" rel="noreferrer"
+            target="_blank"
+            rel="noreferrer"
           >
             github@eselkin
           </a>
@@ -63,7 +65,8 @@ export default function Resume({ onMouseEnter, isDark }: { onMouseEnter: () => v
           <a
             href="https://www.linkedin.com/in/eliselkin"
             className={`link ${isDark ? 'link-accent' : 'link-primary'}`}
-            target="_blank" rel="noreferrer"
+            target="_blank"
+            rel="noreferrer"
           >
             linkedin@eliselkin
           </a>
@@ -113,8 +116,8 @@ export default function Resume({ onMouseEnter, isDark }: { onMouseEnter: () => v
               <select
                 className="select select-sm select-bordered w-56 mb-3  max-w-xs"
                 value={tSkillSelectValue}
-                onChange={(e) => {
-                  setTSkillSelectValue(e.currentTarget.value);
+                onChange={(e: React.UIEvent<HTMLSelectElement>) => {
+                  setTSkillSelectValue(parseInt(e.currentTarget.value));
                 }}
               >
                 <option value={1} label={'Languages'} />

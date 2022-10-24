@@ -73,6 +73,7 @@ export const workExperiences: Work[] = [
       'Provided support to patients and families',
       'Acted as a mandated reporter of abuse',
     ],
+    skills: ['psy-cbt', 'psy-crisis-intervention'],
   },
   {
     from: 2004,
