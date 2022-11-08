@@ -28,7 +28,7 @@ export default function App() {
         </div>
         <div className={'basis-5/6 flex-grow w-full justify-center flex flex-col text-white'}>
           <div className={'text-3xl md:text-4xl xl:text-6xl'}>
-            <a href="mailto:me@eliselkin.com" target={'_blank'} rel="noopener noreferrer">
+            <a href="mailto:eli@eliselkin.com" target={'_blank'} rel="noopener noreferrer">
               Eli Selkin
             </a>
           </div>
